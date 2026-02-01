@@ -1,0 +1,15 @@
+{
+  "name": "playwright-cli-agents",
+  "version": "1.0.0",
+  "description": "Three specialized agents (planner, generator, healer) and shared skills for Playwright E2E testing with Page Object Model pattern",
+  "author": {
+    "name": "Yusuf Tayman",
+    "url": "https://github.com/yusuftayman"
+  },
+  "homepage": "https://github.com/yusuftayman/playwright-cli-agents",
+  "repository": "https://github.com/yusuftayman/playwright-cli-agents",
+  "license": "MIT",
+  "keywords": ["playwright", "e2e", "testing", "agents", "playwright-cli", "page-object-model"],
+  "agents": "./agents/",
+  "skills": "./skills/"
+}

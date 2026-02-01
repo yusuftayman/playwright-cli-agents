@@ -74,23 +74,28 @@ curl -o .claude/skills/playwright-cli/SKILL.md \
 ## What's Inside
 
 ```
-.claude/
-├── agents/                              # Specialized subagents
-│   ├── playwright-cli-planner.md        # Explores pages → creates test plans
-│   ├── playwright-cli-generator.md      # Executes plans → writes test code
-│   └── playwright-cli-healer.md         # Debugs & fixes failing tests
-│
-└── skills/
-    ├── playwright-cli/                  # Browser automation via CLI
-    │   └── SKILL.md                     # playwright-cli command reference
-    └── e2e/                             # Shared domain knowledge
-        ├── SKILL.md                     # Core skill (auto-injected into agents)
-        ├── examples/
-        │   ├── page-object-model.md     # Page Object class templates
-        │   └── e2e-tests.md             # Integration test patterns
-        └── references/
-            ├── component-exploration.md # How to explore UIs via playwright-cli
-            └── api-mocking.md           # Deterministic test data setup
+.claude-plugin/
+└── marketplace.json                     # Plugin marketplace catalog
+
+plugins/
+└── playwright-cli-agents/
+    ├── .claude-plugin/
+    │   └── plugin.json                  # Plugin manifest
+    ├── agents/                          # Specialized subagents
+    │   ├── playwright-cli-planner.md    # Explores pages → creates test plans
+    │   ├── playwright-cli-generator.md  # Executes plans → writes test code
+    │   └── playwright-cli-healer.md     # Debugs & fixes failing tests
+    └── skills/
+        ├── playwright-cli/              # Browser automation via CLI
+        │   └── SKILL.md                 # playwright-cli command reference
+        └── e2e/                         # Shared domain knowledge
+            ├── SKILL.md                 # Core skill (auto-injected into agents)
+            ├── examples/
+            │   ├── page-object-model.md # Page Object class templates
+            │   └── e2e-tests.md         # Integration test patterns
+            └── references/
+                ├── component-exploration.md # How to explore UIs via playwright-cli
+                └── api-mocking.md       # Deterministic test data setup
 ```
 
 ## The Three Agents
@@ -199,22 +204,25 @@ npm install -g @playwright/cli@latest
 
 ## Installation
 
-### Option 1: Copy into your project
+### Option 1: Plugin Marketplace (recommended)
+
+```bash
+# Add the marketplace
+/plugin marketplace add yusuftayman/playwright-cli-agents
+
+# Install the plugin
+/plugin install playwright-cli-agents@playwright-cli-agents
+```
+
+### Option 2: Copy into your project
 
 ```bash
 # Clone this repo
 git clone https://github.com/yusuftayman/playwright-cli-agents.git
 
 # Copy agents and skills into your project
-cp -r playwright-cli-agents/.claude/agents/* your-project/.claude/agents/
-cp -r playwright-cli-agents/.claude/skills/* your-project/.claude/skills/
-```
-
-### Option 2: Use as a starting point
-
-```bash
-git clone https://github.com/yusuftayman/playwright-cli-agents.git my-project/.claude-e2e
-# Then move the .claude/ contents into your project
+cp -r playwright-cli-agents/plugins/playwright-cli-agents/agents/* your-project/.claude/agents/
+cp -r playwright-cli-agents/plugins/playwright-cli-agents/skills/* your-project/.claude/skills/
 ```
 
 ## Usage
