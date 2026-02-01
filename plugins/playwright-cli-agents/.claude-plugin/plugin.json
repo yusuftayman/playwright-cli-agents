@@ -9,7 +9,5 @@
   "homepage": "https://github.com/yusuftayman/playwright-cli-agents",
   "repository": "https://github.com/yusuftayman/playwright-cli-agents",
   "license": "MIT",
-  "keywords": ["playwright", "e2e", "testing", "agents", "playwright-cli", "page-object-model"],
-  "agents": "./agents/",
-  "skills": "./skills/"
+  "keywords": ["playwright", "e2e", "testing", "agents", "playwright-cli", "page-object-model"]
 }
